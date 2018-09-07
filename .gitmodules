@@ -1,0 +1,3 @@
+[submodule "autoload/search-highlighting.kak"]
+	path = autoload/search-highlighting.kak
+	url = https://github.com/alexherbo2/search-highlighting.kak.git

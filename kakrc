@@ -26,8 +26,6 @@ set-option global startup_info_version 20180904
 set-option global autoreload           yes
 
 add-highlighter global/ show-whitespaces -spc ' ' -lf ↲ -nbsp ␣ -tab » -tabpad -
-# highlight all the current search matches
-add-highlighter global/ dynregex         '%reg{/}' 0:+ub
 add-highlighter global/ wrap             -marker '↪ '
 # highlight trailing spaces
 add-highlighter global/ regex            '[^\S\n]+$' 0:Error
@@ -58,9 +56,6 @@ map global user c '<a-|>xsel --input --clipboard<ret>c' \
 map global normal '#' ':comment-line<ret>'      -docstring 'toggle line comment'
 map global normal '<a-#>' ':comment-block<ret>' -docstring 'toggle block comment'
 
-map global normal '<esc>' ' ;:set-register / ""<ret><c-l>' \
-    -docstring 'remove all selection except main, reduce selection to cursor, and stop highlighting search matches'
-
 # make x select lines downward and X select lines upward
 define-command -hidden -params 1 extend-line-down %{
     execute-keys "<a-:>%arg{1}X"
@@ -81,3 +76,14 @@ map global normal X ':extend-line-up %val{count}<ret>'
 # Enable <tab>/<s-tab> for insert completion selection
 hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window insert <s-tab> <c-p> }
 hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap window insert <s-tab> <c-p> }
+
+# highlight search matches
+hook global WinCreate .* %{
+    search-highlighting-enable
+}
+
+set-face global Search                  rgb:272727,rgb:f0c674
+set-face global PrimarySelectionDefault default,rgb:373b41
+
+map global normal '<esc>' ' ;<esc>' \
+    -docstring 'remove all selection except main, reduce selection to cursor, and stop highlighting search matches'
