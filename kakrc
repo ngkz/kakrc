@@ -78,9 +78,7 @@ hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window
 hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap window insert <s-tab> <c-p> }
 
 # highlight search matches
-hook global WinCreate .* %{
-    search-highlighting-enable
-}
+hook global WinCreate .* search-highlighting-enable
 
 set-face global Search                  rgb:272727,rgb:f0c674
 set-face global PrimarySelectionDefault default,rgb:373b41
