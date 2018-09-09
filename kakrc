@@ -1,19 +1,3 @@
-# [x] システムクリップボード
-# [x] kakouneのドキュメントを一通り読む
-# [x] 選択範囲を検索
-# [ ] wikiを読む Migration from Vim/a
-# [ ] extend-line-downのmapのダブルクォートをシングルクォートに変更
-# [ ] :doc commandsの (See Declaring new commands)のリンク切れをなおす
-# [ ] コマンドやキーマップをキーやdocstringからfzfで検索するやつ
-# [ ] TODOを移植 本当に必要なものだけ
-# [ ] easymotion
-# [ ] Goのlint
-# [ ] Goの補完
-# [ ] Goのチュートリアルをやってみる
-# [ ] init.vimの役に立つ部分だけを移植
-# [ ] 役に立つプラグインだけを移植
-# [ ] markdown, rest, asciidoc のリストの番号を自動で調整するやつ
-# [ ] 全角文字の中間に補完リストがかかったときガタガタするのをなおす
 colorscheme tomorrow-night
 
 set-option global scrolloff            1,5
