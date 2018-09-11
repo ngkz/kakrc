@@ -69,3 +69,5 @@ set-face global PrimarySelectionDefault default,rgb:373b41
 
 map global normal '<esc>' ' ;<esc>' \
     -docstring 'remove all selection except main, reduce selection to cursor, and stop highlighting search matches'
+
+map global normal = :format<ret> -docstring 'format buffer'
