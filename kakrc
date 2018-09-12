@@ -27,7 +27,7 @@ map global user p '<a-!>xsel --output --clipboard<ret>' \
     -docstring 'paste (after) from clipboard'
 map global user P '!xsel --output --clipboard<ret>' \
     -docstring 'paste (before) from clipboard'
-map global user R '|xsel --input --clipboard<ret>' \
+map global user R '|xsel --output --clipboard<ret>' \
     -docstring 'replace from clipboard'
 
 map global user y '<a-|>xsel --input --clipboard<ret>y: echo -markup %{{Information}yanked selection to X11 clipboard and register "}<ret>' \
