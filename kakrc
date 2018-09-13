@@ -23,22 +23,23 @@ hook global InsertDelete ' ' %{ try %{
 }}
 
 # System clipboard handling
-map global user p '<a-!>xsel --output --clipboard<ret>' \
+
+map global user p ': execute-keys "<lt>a-!>xsel --output --clipboard<lt>ret>"<ret>' \
     -docstring 'paste (after) from clipboard'
-map global user P '!xsel --output --clipboard<ret>' \
+map global user P ': execute-keys "!xsel --output --clipboard<lt>ret>"<ret>' \
     -docstring 'paste (before) from clipboard'
-map global user R '|xsel --output --clipboard<ret>' \
+map global user R ': execute-keys "|xsel --output --clipboard<lt>ret>"<ret>' \
     -docstring 'replace from clipboard'
 
-map global user y '<a-|>xsel --input --clipboard<ret>y: echo -markup %{{Information}yanked selection to X11 clipboard and register "}<ret>' \
+map global user y %{ : execute-keys '<lt>a-|>xsel --input --clipboard<lt>ret>y: echo -markup %{{Information}yanked selection to X11 clipboard and register '}<lt>ret>"<ret> } \
     -docstring 'yank to clipboard'
-map global user d '<a-|>xsel --input --clipboard<ret>d' \
+map global user d ': execute-keys "<lt>a-|>xsel --input --clipboard<lt>ret>d"<ret>' \
     -docstring 'yank to clipboard and delete'
-map global user c '<a-|>xsel --input --clipboard<ret>c' \
+map global user c ': execute-keys "<lt>a-|>xsel --input --clipboard<lt>ret>c"<ret>' \
     -docstring 'yank to clipboard and delete and enter insert mode'
 
-map global normal '#' ':comment-line<ret>'      -docstring 'toggle line comment'
-map global normal '<a-#>' ':comment-block<ret>' -docstring 'toggle block comment'
+map global normal '#' ': comment-line<ret>'      -docstring 'toggle line comment'
+map global normal '<a-#>' ': comment-block<ret>' -docstring 'toggle block comment'
 
 # make x select lines downward and X select lines upward
 define-command -hidden -params 1 extend-line-down %{
@@ -54,8 +55,8 @@ define-command -hidden -params 1 extend-line-up %{
     execute-keys '<a-;><a-X>'
 }
 
-map global normal x ':extend-line-down %val{count}<ret>'
-map global normal X ':extend-line-up %val{count}<ret>'
+map global normal x ': extend-line-down %val{count}<ret>'
+map global normal X ': extend-line-up %val{count}<ret>'
 
 # Enable <tab>/<s-tab> for insert completion selection
 hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window insert <s-tab> <c-p> }
