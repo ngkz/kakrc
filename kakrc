@@ -59,8 +59,14 @@ map global normal x ': extend-line-down %val{count}<ret>'
 map global normal X ': extend-line-up %val{count}<ret>'
 
 # Enable <tab>/<s-tab> for insert completion selection
-hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window insert <s-tab> <c-p> }
-hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap window insert <s-tab> <c-p> }
+hook global InsertCompletionShow .* %{
+    map window insert <tab>   <c-n>
+    map window insert <s-tab> <c-p>
+}
+hook global InsertCompletionHide .* %{
+    unmap window insert <tab>   <c-n>
+    unmap window insert <s-tab> <c-p>
+}
 
 # highlight search matches
 hook global WinCreate .* search-highlighting-enable
