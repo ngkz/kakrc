@@ -78,3 +78,8 @@ map global normal '<esc>' ' ;<esc>' \
     -docstring 'remove all selection except main, reduce selection to cursor, and stop highlighting search matches'
 
 map global normal = :format<ret> -docstring 'format buffer'
+
+# auto :git show-diff
+hook global WinCreate .*    'git show-diff'
+hook global BufReload .*    'git update-diff'
+hook global BufWritePost .* 'git update-diff'
