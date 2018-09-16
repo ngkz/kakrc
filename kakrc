@@ -77,9 +77,18 @@ set-face global PrimarySelectionDefault default,rgb:373b41
 map global normal '<esc>' ' ;<esc>' \
     -docstring 'remove all selection except main, reduce selection to cursor, and stop highlighting search matches'
 
-map global normal = :format<ret> -docstring 'format buffer'
+map global user f :format<ret> -docstring 'format buffer'
 
 # auto :git show-diff
 hook global WinCreate .*    'git show-diff'
 hook global BufReload .*    'git update-diff'
 hook global BufWritePost .* 'git update-diff'
+
+# kakoune-phantom-selection
+map global normal <minus>   ": phantom-sel-add-selection<ret>"
+map global normal =         ": phantom-sel-select-all; phantom-sel-clear<ret>"
+map global normal <a-minus> ": phantom-sel-iterate-next<ret>"
+map global normal <a-=>     ": phantom-sel-iterate-prev<ret>"
+
+map global insert <a-minus> "<esc>: phantom-sel-iterate-next<ret>i"
+map global insert <a-=>     "<esc>: phantom-sel-iterate-prev<ret>i"
