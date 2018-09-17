@@ -4,3 +4,6 @@
 [submodule "autoload/kakoune-phantom-selection"]
 	path = autoload/kakoune-phantom-selection
 	url = https://github.com/occivink/kakoune-phantom-selection.git
+[submodule "autoload/kakoune-auto-percent"]
+	path = autoload/kakoune-auto-percent
+	url = https://github.com/Delapouite/kakoune-auto-percent.git
