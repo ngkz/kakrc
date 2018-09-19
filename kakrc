@@ -92,3 +92,6 @@ map global normal <a-=>     ": phantom-sel-iterate-prev<ret>"
 
 map global insert <a-minus> "<esc>: phantom-sel-iterate-next<ret>i"
 map global insert <a-=>     "<esc>: phantom-sel-iterate-prev<ret>i"
+
+# highlight TODO, FIXME, etc.
+add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE|BUG|DEBUG|TBD|HACK)\b 0:default+rb
