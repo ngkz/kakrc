@@ -80,9 +80,18 @@ map global normal '<esc>' ' ;<esc>' \
 map global user f :format<ret> -docstring 'format buffer'
 
 # auto :git show-diff
-hook global WinCreate .*    'git show-diff'
-hook global BufReload .*    'git update-diff'
-hook global BufWritePost .* 'git update-diff'
+define-command -hidden -params 1 if-git-repository %{
+    evaluate-commands %sh{
+        if [ -r "$kak_buffile" ] && \
+           (cd "$(dirname "$kak_buffile")" && git rev-parse --git-dir>/dev/null 2>&1); then
+            echo "$1"
+        fi
+    }
+}
+
+hook global WinCreate .*    %{ if-git-repository 'git show-diff' }
+hook global BufReload .*    %{ if-git-repository 'git update-diff' }
+hook global BufWritePost .* %{ if-git-repository 'git update-diff' }
 
 # kakoune-phantom-selection
 map global normal <minus>   ": phantom-sel-add-selection<ret>"
