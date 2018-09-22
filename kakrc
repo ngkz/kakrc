@@ -84,7 +84,7 @@ define-command -hidden -params 1 if-git-repository %{
     evaluate-commands %sh{
         if [ -r "$kak_buffile" ] && \
            (cd "$(dirname "$kak_buffile")" && git rev-parse --git-dir>/dev/null 2>&1); then
-            echo "$1"
+            printf '%s' "$1"
         fi
     }
 }
