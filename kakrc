@@ -13,6 +13,7 @@ add-highlighter global/ show-whitespaces -spc ' ' -lf ↲ -nbsp ␣ -tab » -tab
 add-highlighter global/ wrap             -marker '↪ '
 # highlight trailing spaces
 add-highlighter global/ regex            '[^\S\n]+$' 0:Error
+add-highlighter global/ show-matching
 
 # use spaces instead of tab as a indent
 hook global InsertChar \t %{
