@@ -91,3 +91,9 @@ map global insert <a-=>     "<esc>: phantom-sel-iterate-prev<ret>i"
 
 # highlight TODO, FIXME, etc.
 add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE|BUG|DEBUG|TBD|HACK)\b 0:default+rb
+
+# auto-pairs.kak
+hook global WinCreate .* %{
+  auto-pairs-enable
+}
+map global user s :auto-pairs-surround<ret>
