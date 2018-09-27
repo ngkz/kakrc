@@ -97,3 +97,9 @@ hook global WinCreate .* %{
   auto-pairs-enable
 }
 map global user s :auto-pairs-surround<ret>
+
+# kakoune-cd
+alias global cdd change-directory-current-buffer
+alias global cdr change-directory-project-root
+alias global pwd print-working-directory
+alias global ecd edit-current-buffer-directory
