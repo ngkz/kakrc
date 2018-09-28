@@ -7,9 +7,6 @@
 [submodule "autoload/kakoune-auto-percent"]
 	path = autoload/kakoune-auto-percent
 	url = https://github.com/Delapouite/kakoune-auto-percent.git
-[submodule "autoload/auto-pairs.kak"]
-	path = autoload/auto-pairs.kak
-	url = https://github.com/alexherbo2/auto-pairs.kak.git
 [submodule "autoload/kakoune-cd"]
 	path = autoload/kakoune-cd
 	url = git@github.com:ngkz/kakoune-cd.git
