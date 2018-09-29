@@ -97,3 +97,6 @@ alias global cdd change-directory-current-buffer
 alias global cdr change-directory-project-root
 alias global pwd print-working-directory
 alias global ecd edit-current-buffer-directory
+
+# kakoune-show-matching-insert
+add-highlighter global/ ranges show_matching_insert

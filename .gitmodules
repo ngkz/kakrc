@@ -10,3 +10,6 @@
 [submodule "autoload/kakoune-cd"]
 	path = autoload/kakoune-cd
 	url = git@github.com:ngkz/kakoune-cd.git
+[submodule "autoload/kakoune-show-matching-insert"]
+	path = autoload/kakoune-show-matching-insert
+	url = https://github.com/laelath/kakoune-show-matching-insert.git
